@@ -1,9 +1,9 @@
-
 use std::collections::{HashMap, HashSet, VecDeque};
 use crate::graph::Graph;
 
 pub fn analyze_paths(graph: &Graph) {
-    let nodes: Vec<_> = graph.keys().take(10).collect(); // sample 10
+    // Use all nodes in the graph instead of just 10
+    let nodes: Vec<_> = graph.keys().collect();
     let mut total = 0;
     let mut count = 0;
 
@@ -16,7 +16,7 @@ pub fn analyze_paths(graph: &Graph) {
     }
 
     if count > 0 {
-        println!("Average shortest path length (sampled): {:.2}", total as f64 / count as f64);
+        println!("Average shortest path length: {:.2}", total as f64 / count as f64);
     } else {
         println!("No paths to analyze.");
     }
